@@ -1,0 +1,156 @@
+<mxfile host="app.diagrams.net" modified="2026-05-25" agent="Kiro">
+  <diagram name="Diagrama de Contenedores" id="cont">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITULO -->
+        <mxCell id="t1" value="&lt;font color=&quot;#326CE5&quot; style=&quot;font-size:20px&quot;&gt;&lt;b&gt;Diagrama de Contenedores&lt;/b&gt;&lt;/font&gt;&lt;font color=&quot;#5F6368&quot; style=&quot;font-size:20px&quot;&gt; - Kubernetes (GKE)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="350" y="10" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- GKE Cluster -->
+        <mxCell id="clust" value="GKE Cluster: devops-cluster" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#326CE5;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#326CE5;verticalAlign=top;spacingTop=8;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="30" y="60" width="1540" height="910" as="geometry" />
+        </mxCell>
+
+        <!-- Namespace: default -->
+        <mxCell id="nsd" value="Namespace: default" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=2;fontSize=11;fontStyle=1;fontColor=#388E3C;verticalAlign=top;spacingTop=8;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="700" height="400" as="geometry" />
+        </mxCell>
+
+        <!-- Deployment -->
+        <mxCell id="dep" value="Deployment: app-deployment (replicas: 3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=9;fontStyle=1;fontColor=#202124;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="160" width="640" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" value="Pod 1&#10;app:latest&#10;:8080" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.pod;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="130" y="195" width="40" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="Pod 2&#10;app:latest&#10;:8080" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.pod;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="310" y="195" width="40" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="Pod 3&#10;app:latest&#10;:8080" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.pod;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="490" y="195" width="40" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Service -->
+        <mxCell id="svc" value="Service: app-service&#10;ClusterIP | 80→8080" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.svc;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="130" y="360" width="44" height="42" as="geometry" />
+        </mxCell>
+        <!-- HPA -->
+        <mxCell id="hpa" value="HPA&#10;min:3 max:10&#10;CPU:70%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="280" y="360" width="90" height="45" as="geometry" />
+        </mxCell>
+        <!-- ConfigMap -->
+        <mxCell id="cm" value="ConfigMap&#10;app-config" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="430" y="360" width="80" height="40" as="geometry" />
+        </mxCell>
+        <!-- Secret -->
+        <mxCell id="scr" value="Secret&#10;app-secrets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="570" y="360" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Namespace: monitoring -->
+        <mxCell id="nsm" value="Namespace: monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=2;fontSize=11;fontStyle=1;fontColor=#E65100;verticalAlign=top;spacingTop=8;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="800" y="110" width="740" height="400" as="geometry" />
+        </mxCell>
+        <!-- Prometheus -->
+        <mxCell id="prom" value="Prometheus&#10;(StatefulSet)" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=12;fillColor=#E6522C;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="200" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="psvc" value="Service&#10;prometheus-svc&#10;:9090" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.svc;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="870" y="340" width="40" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ppvc" value="PVC&#10;prometheus-data&#10;10Gi SSD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="850" y="440" width="100" height="40" as="geometry" />
+        </mxCell>
+        <!-- Grafana -->
+        <mxCell id="graf" value="Grafana&#10;(Deployment)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F46800;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="200" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gsvc" value="Service&#10;grafana-svc&#10;:3000" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.svc;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="340" width="40" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="gpvc" value="PVC&#10;grafana-data&#10;5Gi SSD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="440" width="100" height="40" as="geometry" />
+        </mxCell>
+        <!-- ServiceMonitor -->
+        <mxCell id="smn" value="ServiceMonitor&#10;(scrape app)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#D32F2F;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="200" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Namespace: ingress-nginx -->
+        <mxCell id="nsi" value="Namespace: ingress-nginx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;fontSize=11;fontStyle=1;fontColor=#1565C0;verticalAlign=top;spacingTop=8;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="550" width="700" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ingd" value="Deployment: ingress-nginx-controller (replicas: 2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B3E5FC;strokeColor=#0288D1;fontSize=9;fontStyle=1;fontColor=#202124;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="600" width="640" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ip1" value="Ingress&#10;Ctrl 1" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.ing;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="180" y="635" width="40" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ip2" value="Ingress&#10;Ctrl 2" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#326CE5;strokeColor=#ffffff;shape=mxgraph.kubernetes.ing;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="400" y="635" width="40" height="38" as="geometry" />
+        </mxCell>
+        <!-- Ingress Service LB -->
+        <mxCell id="isvc" value="Service: ingress-nginx&#10;Type: LoadBalancer&#10;Ports: 80, 443" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00897B;fontSize=8;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="120" y="760" width="160" height="50" as="geometry" />
+        </mxCell>
+        <!-- Ingress Resource -->
+        <mxCell id="ires" value="Ingress Resource:&#10;/ → app-service:80&#10;/grafana → grafana-svc:3000&#10;/metrics → prometheus-svc:9090" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=8;fontStyle=1;fontColor=#202124;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="370" y="750" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Namespace: kube-system -->
+        <mxCell id="nsk" value="Namespace: kube-system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;strokeWidth=2;fontSize=11;fontStyle=1;fontColor=#455A64;verticalAlign=top;spacingTop=8;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="800" y="550" width="740" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="cdns" value="CoreDNS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="850" y="610" width="80" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="kprx" value="kube-proxy&#10;(DaemonSet)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="610" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="mets" value="metrics-server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="610" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fbit" value="Fluent Bit&#10;(logs)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="610" width="80" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- CONEXIONES -->
+        <!-- Service → Pods -->
+        <mxCell id="c1" value="route" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#326CE5;fontSize=8;fontColor=#5F6368;" edge="1" source="svc" target="p1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Ingress Resource → app-service -->
+        <mxCell id="c2" value="/" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#34A853;fontSize=8;fontStyle=1;fontColor=#5F6368;" edge="1" source="ires" target="svc" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Ingress Resource → grafana -->
+        <mxCell id="c3" value="/grafana" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#F46800;dashed=1;fontSize=8;fontColor=#5F6368;" edge="1" source="ires" target="gsvc" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Ingress Resource → prometheus -->
+        <mxCell id="c4" value="/metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#E6522C;dashed=1;fontSize=8;fontColor=#5F6368;" edge="1" source="ires" target="psvc" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- ServiceMonitor → app service (scrape) -->
+        <mxCell id="c5" value="scrape" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#E6522C;dashed=1;fontSize=8;fontColor=#5F6368;" edge="1" source="smn" target="svc" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Grafana → Prometheus -->
+        <mxCell id="c6" value="PromQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#F46800;dashed=1;fontSize=8;fontColor=#5F6368;" edge="1" source="graf" target="prom" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Leyenda -->
+        <mxCell id="leg" value="Comunicación:&#10;── Tráfico directo&#10;- - Scraping / Queries&#10;&#10;Colores:&#10;🔵 K8s  🟠 Prometheus&#10;🟧 Grafana  ⚪ Sistema" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#BDBDBD;fontSize=8;align=left;spacingLeft=8;fontColor=#5F6368;" vertex="1" parent="1">
+          <mxGeometry x="850" y="720" width="160" height="120" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

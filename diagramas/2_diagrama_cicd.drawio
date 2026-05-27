@@ -1,0 +1,163 @@
+<mxfile host="app.diagrams.net" modified="2026-05-25" agent="Kiro">
+  <diagram name="Pipeline CI-CD" id="cicd-diagram">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900">
+      <root>
+        <mxCell id="cell-0" />
+        <mxCell id="cell-1" parent="cell-0" />
+
+        <mxCell id="title-cicd" value="Pipeline CI/CD - GitHub Actions to GKE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=20;fontStyle=1;fontColor=#4285F4;" vertex="1" parent="cell-1">
+          <mxGeometry x="400" y="15" width="500" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-dev" value="Developer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#34A853;strokeWidth=2;dashed=1;fontSize=11;fontStyle=1;fontColor=#34A853;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="30" y="200" width="140" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-dev" value="" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#34A853;strokeColor=#34A853;" vertex="1" parent="cell-1">
+          <mxGeometry x="75" y="250" width="28" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="step-code" value="Write Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#34A853;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="cell-1">
+          <mxGeometry x="45" y="340" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step-push" value="git push to main" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#34A853;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="cell-1">
+          <mxGeometry x="45" y="440" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-github" value="GitHub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#24292E;strokeWidth=2;dashed=1;dashPattern=8 4;fontSize=11;fontStyle=1;fontColor=#24292E;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="230" y="200" width="160" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="node-repo" value="Repository" style="ellipse;whiteSpace=wrap;html=1;fillColor=#24292E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="270" y="260" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="node-trigger" value="Trigger (on push)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="cell-1">
+          <mxGeometry x="260" y="370" width="110" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-actions" value="GitHub Actions Workflow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#24292E;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#24292E;verticalAlign=top;spacingTop=8;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="450" y="80" width="700" height="780" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-stage1" value="Stage 1: Build and Test" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=2;fontSize=10;fontStyle=1;fontColor=#388E3C;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="480" y="120" width="640" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="step-checkout" value="Checkout Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4CAF50;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="500" y="170" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step-install" value="Install Deps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4CAF50;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="620" y="170" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step-test" value="Run Tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4CAF50;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="740" y="170" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step-lint" value="Lint + Security" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4CAF50;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="860" y="170" width="90" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-stage2" value="Stage 2: Containerize" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;fontSize=10;fontStyle=1;fontColor=#1565C0;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="480" y="290" width="640" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="step-dbuild" value="Docker Build" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2496ED;strokeColor=none;fontColor=#FFFFFF;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="510" y="335" width="95" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step-dtag" value="Docker Tag" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2496ED;strokeColor=none;fontColor=#FFFFFF;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="650" y="335" width="95" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step-dpush" value="Push to Registry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2496ED;strokeColor=none;fontColor=#FFFFFF;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="790" y="335" width="110" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-stage3" value="Stage 3: Deploy to GKE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#5E35B1;strokeWidth=2;fontSize=10;fontStyle=1;fontColor=#4527A0;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="480" y="460" width="640" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="step-auth" value="Auth GCP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="510" y="510" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step-cred" value="Get GKE Creds" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="660" y="510" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step-kubectl" value="kubectl apply" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="810" y="510" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-stage4" value="Stage 4: Verify" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=2;fontSize=10;fontStyle=1;fontColor=#E65100;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="480" y="630" width="640" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step-health" value="Health Check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9800;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="530" y="670" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step-rollout" value="Rollout Status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9800;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="670" y="670" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step-done" value="Done" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=10;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="810" y="670" width="80" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box-gcp" value="Google Cloud Platform" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#4285F4;strokeWidth=2;dashed=1;dashPattern=10 5;fontSize=11;fontStyle=1;fontColor=#4285F4;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;" vertex="1" parent="cell-1">
+          <mxGeometry x="1220" y="200" width="160" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="node-registry" value="Artifact Registry" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#4285F4;strokeColor=none;shape=mxgraph.gcp2.container_registry;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="cell-1">
+          <mxGeometry x="1270" y="300" width="44" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="node-gke" value="GKE" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#4285F4;strokeColor=none;shape=mxgraph.gcp2.google_kubernetes_engine;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="cell-1">
+          <mxGeometry x="1270" y="470" width="44" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="node-running" value="App Running" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=9;fontStyle=1;" vertex="1" parent="cell-1">
+          <mxGeometry x="1255" y="600" width="90" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- EDGES -->
+        <mxCell id="edge-dev-code" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#34A853;" edge="1" source="actor-dev" target="step-code" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-code-push" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#34A853;" edge="1" source="step-code" target="step-push" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-push-repo" value="push" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#24292E;fontSize=9;fontColor=#5F6368;" edge="1" source="step-push" target="node-repo" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-repo-trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF9800;" edge="1" source="node-repo" target="node-trigger" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-trigger-chk" value="trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#24292E;fontSize=9;fontColor=#5F6368;" edge="1" source="node-trigger" target="step-checkout" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-chk-inst" style="rounded=1;strokeWidth=2;strokeColor=#4CAF50;" edge="1" source="step-checkout" target="step-install" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-inst-tst" style="rounded=1;strokeWidth=2;strokeColor=#4CAF50;" edge="1" source="step-install" target="step-test" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-tst-lint" style="rounded=1;strokeWidth=2;strokeColor=#4CAF50;" edge="1" source="step-test" target="step-lint" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-dbld-dtag" style="rounded=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" source="step-dbuild" target="step-dtag" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-dtag-dpush" style="rounded=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" source="step-dtag" target="step-dpush" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-auth-cred" style="rounded=1;strokeWidth=2;strokeColor=#5E35B1;" edge="1" source="step-auth" target="step-cred" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-cred-kubectl" style="rounded=1;strokeWidth=2;strokeColor=#5E35B1;" edge="1" source="step-cred" target="step-kubectl" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-health-roll" style="rounded=1;strokeWidth=2;strokeColor=#FF9800;" edge="1" source="step-health" target="step-rollout" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-roll-done" style="rounded=1;strokeWidth=2;strokeColor=#2E7D32;" edge="1" source="step-rollout" target="step-done" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-dpush-reg" value="push image" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#1976D2;dashed=1;fontSize=9;fontColor=#5F6368;" edge="1" source="step-dpush" target="node-registry" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-kubectl-gke" value="deploy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#5E35B1;dashed=1;fontSize=9;fontColor=#5F6368;" edge="1" source="step-kubectl" target="node-gke" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-gke-app" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#2E7D32;" edge="1" source="node-gke" target="node-running" parent="cell-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

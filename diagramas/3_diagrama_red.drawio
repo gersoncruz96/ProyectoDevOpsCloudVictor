@@ -1,0 +1,117 @@
+<mxfile host="app.diagrams.net" modified="2026-05-25" agent="Kiro">
+  <diagram name="Diagrama de Red" id="net">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITULO -->
+        <mxCell id="t1" value="&lt;font color=&quot;#4285F4&quot; style=&quot;font-size:20px&quot;&gt;&lt;b&gt;Diagrama de Red&lt;/b&gt;&lt;/font&gt;&lt;font color=&quot;#5F6368&quot; style=&quot;font-size:20px&quot;&gt; - Segmentación y Firewalls&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="380" y="10" width="550" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Internet -->
+        <mxCell id="inet" value="Internet" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;fontSize=12;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="680" y="70" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Firewall Externo -->
+        <mxCell id="fwe" value="Cloud Armor (WAF)&#10;&#10;✅ Allow: 80, 443&#10;❌ Deny: All other" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#D32F2F;fontSize=9;fontStyle=1;fontColor=#202124;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="640" y="180" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- VPC -->
+        <mxCell id="vpcb" value="VPC: main-vpc (10.0.0.0/16) | Region: us-central1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1A73E8;strokeWidth=2;dashed=1;fontSize=11;fontStyle=1;fontColor=#1A73E8;verticalAlign=top;spacingTop=8;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="1400" height="650" as="geometry" />
+        </mxCell>
+
+        <!-- Subnet Publica -->
+        <mxCell id="spub" value="Subnet Pública: 10.0.1.0/24" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=2;fontSize=10;fontStyle=1;fontColor=#E65100;verticalAlign=top;spacingTop=8;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="130" y="360" width="300" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="slb" value="Cloud Load&#10;Balancing" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#4285F4;strokeColor=none;shape=mxgraph.gcp2.load_balancing;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="44" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="snat" value="Cloud NAT" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#4285F4;strokeColor=none;shape=mxgraph.gcp2.nat;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="220" y="560" width="44" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="srtr" value="Cloud Router" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FFA000;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="200" y="700" width="90" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Subnet Privada -->
+        <mxCell id="sprv" value="Subnet Privada: 10.0.2.0/24 (GKE Nodes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;strokeWidth=2;fontSize=10;fontStyle=1;fontColor=#6A1B9A;verticalAlign=top;spacingTop=8;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="480" y="360" width="980" height="550" as="geometry" />
+        </mxCell>
+
+        <!-- Firewall Interno -->
+        <mxCell id="fwi" value="Firewall Rules (Internal)&#10;&#10;✅ 8080 (app) ✅ 9090 (prom)&#10;✅ 3000 (grafana) ✅ 10250 (kubelet)&#10;❌ Deny all other" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#D32F2F;fontSize=8;fontStyle=1;fontColor=#202124;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="400" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Nodes -->
+        <mxCell id="n1" value="Node 1&#10;10.0.2.10" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#4285F4;strokeColor=none;shape=mxgraph.gcp2.compute_engine;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="550" y="550" width="44" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="Node 2&#10;10.0.2.11" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#4285F4;strokeColor=none;shape=mxgraph.gcp2.compute_engine;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="750" y="550" width="44" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="Node 3&#10;10.0.2.12" style="aspect=fixed;sketch=0;html=1;dashed=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#4285F4;strokeColor=none;shape=mxgraph.gcp2.compute_engine;fontSize=9;fontStyle=1;fontColor=#202124;" vertex="1" parent="1">
+          <mxGeometry x="950" y="550" width="44" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Pods -->
+        <mxCell id="pa1" value="App :8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#326CE5;strokeColor=none;fontColor=#FFFFFF;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="680" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pa2" value="App :8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#326CE5;strokeColor=none;fontColor=#FFFFFF;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="680" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pp" value="Prometheus :9090" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=8;fillColor=#E6522C;strokeColor=none;fontColor=#FFFFFF;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="680" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg" value="Grafana :3000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F46800;strokeColor=none;fontColor=#FFFFFF;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="680" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pi" value="Ingress :443" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#34A853;strokeColor=none;fontColor=#FFFFFF;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="680" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Pod Network -->
+        <mxCell id="pnet" value="Pod Network: 10.48.0.0/14 (comunicación interna entre pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;fontSize=9;fontStyle=1;fontColor=#00695C;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="770" width="450" height="30" as="geometry" />
+        </mxCell>
+        <!-- Service Network -->
+        <mxCell id="snet" value="Service Network: 10.52.0.0/20 (ClusterIP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#00695C;fontSize=9;fontStyle=1;fontColor=#004D40;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="820" width="450" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Leyenda -->
+        <mxCell id="leg" value="Puertos:&#10;443 HTTPS (entrada)&#10;8080 App&#10;9090 Prometheus&#10;3000 Grafana&#10;10250 Kubelet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#BDBDBD;fontSize=8;align=left;spacingLeft=8;fontColor=#5F6368;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="770" width="130" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- CONEXIONES -->
+        <mxCell id="r1" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#4285F4;fontSize=9;fontStyle=1;fontColor=#5F6368;" edge="1" source="inet" target="fwe" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="filtered" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#D32F2F;fontSize=8;fontColor=#5F6368;" edge="1" source="fwe" target="slb" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#4285F4;" edge="1" source="slb" target="n1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#4285F4;" edge="1" source="slb" target="n2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#4285F4;" edge="1" source="slb" target="n3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" value="egress" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#FF9800;dashed=1;fontSize=8;fontColor=#5F6368;" edge="1" source="n1" target="snat" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

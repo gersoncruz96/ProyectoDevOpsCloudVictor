@@ -1,0 +1,7 @@
+# Copia este archivo como terraform.tfvars y pon tu project ID
+project_id   = "tu-project-id-aqui"
+region       = "us-central1"
+zone         = "us-central1-a"
+cluster_name = "devops-cluster"
+node_count   = 2
+machine_type = "e2-medium"
