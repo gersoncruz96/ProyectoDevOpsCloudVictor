@@ -73,7 +73,7 @@ app.get('/', (req, res) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevOps Dashboard</title>
+  <title>VictorTech Solutions - Cloud Dashboard</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -204,8 +204,8 @@ app.get('/', (req, res) => {
 <body>
   <div class="container">
     <header>
-      <h1>DevOps Dashboard</h1>
-      <p class="subtitle">Proyecto Final - Sistemas Operativos II</p>
+      <h1>VictorTech Solutions</h1>
+      <p class="subtitle">Cloud Infrastructure Dashboard</p>
     </header>
 
     <div class="status-bar">
@@ -268,41 +268,30 @@ app.get('/', (req, res) => {
     </div>
     <div class="response-box" id="response"></div>
 
-    <div class="tech-stack">
-      <span class="tech-badge">Google Cloud</span>
-      <span class="tech-badge">Kubernetes (GKE)</span>
-      <span class="tech-badge">Docker</span>
-      <span class="tech-badge">Terraform</span>
-      <span class="tech-badge">GitHub Actions</span>
-      <span class="tech-badge">Prometheus</span>
-      <span class="tech-badge">Grafana</span>
-      <span class="tech-badge">Node.js</span>
-    </div>
-
-    <script>
-      async function fetchData(endpoint) {
-        const box = document.getElementById('response');
-        box.style.display = 'block';
-        box.textContent = 'Loading...';
-        try {
-          const res = await fetch(endpoint);
-          const text = await res.text();
-          try {
-            const json = JSON.parse(text);
-            box.textContent = JSON.stringify(json, null, 2);
-          } catch {
-            box.textContent = text.substring(0, 500) + '...';
-          }
-        } catch (err) {
-          box.textContent = 'Error: ' + err.message;
-        }
-      }
-    </script>
-
     <footer>
-      <p>Infraestructura DevOps en la Nube | GKE + Terraform + CI/CD</p>
+      <p>VictorTech Solutions | Infraestructura DevOps en la Nube | GKE + Terraform + CI/CD</p>
     </footer>
   </div>
+
+  <script>
+    async function fetchData(endpoint) {
+      const box = document.getElementById('response');
+      box.style.display = 'block';
+      box.textContent = 'Loading...';
+      try {
+        const res = await fetch(endpoint);
+        const text = await res.text();
+        try {
+          const json = JSON.parse(text);
+          box.textContent = JSON.stringify(json, null, 2);
+        } catch(e) {
+          box.textContent = text.substring(0, 500) + '...';
+        }
+      } catch (err) {
+        box.textContent = 'Error: ' + err.message;
+      }
+    }
+  </script>
 </body>
 </html>`);
 });
