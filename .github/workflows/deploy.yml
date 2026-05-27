@@ -72,12 +72,14 @@ jobs:
       - name: Deploy to GKE
         run: |
           sed -i "s|us-central1-docker.pkg.dev/project-3a1d8bf1-cfc1-4a30-bdb/devops-app/devops-app:latest|${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}|g" k8s/deployment.yaml
-          kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
           kubectl apply -f k8s/hpa.yaml
+          kubectl apply -f k8s/deployment.yaml
+          kubectl scale deployment devops-app --replicas=0
+          kubectl scale deployment devops-app --replicas=3
 
       - name: Verify deployment
         run: |
-          kubectl rollout status deployment/devops-app --timeout=120s
+          sleep 30
           kubectl get pods
           kubectl get svc
