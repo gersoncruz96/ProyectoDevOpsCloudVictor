@@ -152,6 +152,52 @@ app.get('/', (req, res) => {
       font-size: 0.8rem;
       color: #4285F4;
     }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .btn {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: #fff;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .btn-blue { background: linear-gradient(135deg, #4285F4, #1a73e8); }
+    .btn-green { background: linear-gradient(135deg, #34A853, #1e8e3e); }
+    .btn-orange { background: linear-gradient(135deg, #F46800, #e65100); }
+    .btn-red { background: linear-gradient(135deg, #EA4335, #c62828); }
+    .btn-purple { background: linear-gradient(135deg, #7B42BC, #5E35B1); }
+    .response-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      color: #ccd6f6;
+      margin: 2rem 0 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
     footer { text-align: center; margin-top: 3rem; color: #5a6070; font-size: 0.85rem; }
   </style>
 </head>
@@ -211,6 +257,47 @@ app.get('/', (req, res) => {
       <span class="tech-badge">Grafana</span>
       <span class="tech-badge">Node.js</span>
     </div>
+
+    <p class="section-title">Acciones</p>
+    <div class="actions">
+      <button class="btn btn-blue" onclick="fetchData('/api/info')">System Info</button>
+      <button class="btn btn-green" onclick="fetchData('/health')">Health Check</button>
+      <button class="btn btn-orange" onclick="window.open('http://136.115.122.75:9090','_blank')">Prometheus</button>
+      <button class="btn btn-red" onclick="window.open('http://35.202.123.208:3000','_blank')">Grafana</button>
+      <button class="btn btn-purple" onclick="fetchData('/metrics')">Metrics</button>
+    </div>
+    <div class="response-box" id="response"></div>
+
+    <div class="tech-stack">
+      <span class="tech-badge">Google Cloud</span>
+      <span class="tech-badge">Kubernetes (GKE)</span>
+      <span class="tech-badge">Docker</span>
+      <span class="tech-badge">Terraform</span>
+      <span class="tech-badge">GitHub Actions</span>
+      <span class="tech-badge">Prometheus</span>
+      <span class="tech-badge">Grafana</span>
+      <span class="tech-badge">Node.js</span>
+    </div>
+
+    <script>
+      async function fetchData(endpoint) {
+        const box = document.getElementById('response');
+        box.style.display = 'block';
+        box.textContent = 'Loading...';
+        try {
+          const res = await fetch(endpoint);
+          const text = await res.text();
+          try {
+            const json = JSON.parse(text);
+            box.textContent = JSON.stringify(json, null, 2);
+          } catch {
+            box.textContent = text.substring(0, 500) + '...';
+          }
+        } catch (err) {
+          box.textContent = 'Error: ' + err.message;
+        }
+      }
+    </script>
 
     <footer>
       <p>Infraestructura DevOps en la Nube | GKE + Terraform + CI/CD</p>
